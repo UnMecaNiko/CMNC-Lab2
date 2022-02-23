@@ -100,11 +100,11 @@ def GetDatos():
                 datos[0][Muestras - 1] = float(value)
                 print(value)
 
-            if label == 'TEM':
+            if label == 'pot1':
                 datos[1] = np.roll(datos[1], -1)
                 datos[1][Muestras - 1] = float(value)
                 print(value)
-            if label == 'POT':
+            if label == 'pot3':
                 datos[2] = np.roll(datos[2], -1)
                 datos[2][Muestras - 1] = float(value)
                 print(value)
@@ -125,31 +125,31 @@ def graficar3(*args):
 
 #GRAFICACION FIGS
 figura1 = plt.figure(figsize = (3,3),facecolor='blue')
-EJES = plt.axes(xlim=(0, Muestras), ylim=(0,5))
-plt.title('CNY70 (Distancia)')
+EJES = plt.axes(xlim=(0, Muestras), ylim=(0,3.5))
+plt.title('Potenciómetro 1')
 plt.grid()
 EJES.set_xlabel('Muestra')
-EJES.set_ylabel('(cm)')
+EJES.set_ylabel('[V]')
 grafiacas[0]=EJES.plot([],[])[0]
 canvas = FigureCanvasTkAgg(figura1, master=window)
 canvas._tkcanvas.grid(row=0, column=0, pady=15, padx=10)
 
 figura2 = plt.figure(figsize = (3,3),facecolor='blue')
-EJES2 = plt.axes(xlim=(0, Muestras), ylim=(20,70))
-plt.title('LM35 (Temperatura)')
+EJES2 = plt.axes(xlim=(0, Muestras), ylim=(0,3.5))
+plt.title('Potenciómetro 2')
 plt.grid()
 EJES2.set_xlabel('Muestra')
-EJES2.set_ylabel('(°C)')
+EJES2.set_ylabel('[V]')
 grafiacas[1]=EJES2.plot([],[])[0]
 canvas2 = FigureCanvasTkAgg(figura2, master=window)
 canvas2._tkcanvas.grid(row=0, column=1, pady=15, padx=10)
 
 figura3 = plt.figure(figsize = (3,3),facecolor='blue')
-EJES3 = plt.axes(xlim=(0, Muestras), ylim=(0,5.5))
-plt.title('POT (Tensión)')
+EJES3 = plt.axes(xlim=(0, Muestras), ylim=(0,3.5))
+plt.title('Potenciómetro 3')
 plt.grid()
 EJES3.set_xlabel('Muestra')
-EJES3.set_ylabel('(V)')
+EJES3.set_ylabel('[V]')
 grafiacas[2]=EJES3.plot([],[])[0]
 canvas3 = FigureCanvasTkAgg(figura3, master=window)
 canvas3._tkcanvas.grid(row=0, column=2, pady=15, padx=10)
